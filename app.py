@@ -15,10 +15,10 @@ def changelog():
     markdown = Markdown()
     return markdown.convert(changelog.text)
 
-@app.route('/latest_version')
-def latest_version():
+@app.route('/versions')
+def versions():
     tags = requests.get('https://api.github.com/repos/posthog/posthog/git/refs/tags/')
     tags = list(reversed(tags.json()))
     return jsonify([
-        {'tag': tag['ref'].split('/')[-1]} for tag in tags
+        {'version': tag['ref'].split('/')[-1]} for tag in tags
     ])
