@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 from markdown2 import Markdown
 import requests
@@ -15,7 +15,7 @@ def index():
 def changelog():
     changelog = requests.get('https://raw.githubusercontent.com/PostHog/posthog/master/CHANGELOG.md')
     markdown = Markdown()
-    return markdown.convert(changelog.text)
+    return render_template('changelog.html', html=markdown.convert(changelog.text).replace("<a", "<a target='_blank'"))
 
 @app.route('/versions')
 def versions():
