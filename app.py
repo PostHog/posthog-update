@@ -25,5 +25,5 @@ def versions():
     tags = requests.get('https://api.github.com/repos/posthog/posthog/git/refs/tags/')
     tags = list(reversed(tags.json()))
     return jsonify([
-        {'version': tag['ref'].split('/')[-1]} for tag in tags
+        {'version': tag['ref'].split('/')[-1]} for tag in tags if "beta" not in tag['ref']
     ])
