@@ -1,4 +1,4 @@
-# Posthog Update
+# PostHog Update
 
 A super simple microservice that allows PostHog apps to find out if there are any updates.
 
