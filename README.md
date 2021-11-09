@@ -1,4 +1,6 @@
-# PostHog Update
+# DEPRECATED - PostHog Update
+
+> ⚠️ Latest details on this microservice can be found in the https://github.com/PostHog/product-internal repo.
 
 A super simple microservice that allows PostHog apps to find out if there are any updates.
 
